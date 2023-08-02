@@ -15,12 +15,10 @@ enable_testing()
 
 #add files in this project
 set(SRC_MAIN src)
-set(SRC_TEST tst)
 file(GLOB_RECURSE SOURCES ${SRC_MAIN}/*.cpp)
 list(REMOVE_ITEM SOURCES ${SRC_MAIN}/main.cpp)
 file(GLOB_RECURSE HEADERS ${SRC_MAIN}/*.h)
 add_library(${PROJ_NAME} STATIC ${SOURCES} ${HEADERS})
-include_directories(${SRC_MAIN} ${SRC_TEST})
 
 #add google
 add_subdirectory(lib/googletest)
