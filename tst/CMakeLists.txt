@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.17)
+set(TEST_EXE Tests)
+FILE(GLOB_RECURSE TEST_SOURCES ./*.cpp)
+list(REMOVE_ITEM TEST_SOURCES main.cpp)
+#set(TestSources tiltUnitTestsMain.cpp)
+add_executable(${TEST_EXE} ${TEST_SOURCES})
+target_link_libraries(${TEST_EXE} PUBLIC gtest_main ${PROJ_NAME})
+add_test(NAME ${TEST_EXE} COMMAND ${TEST_EXE})
